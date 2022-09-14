@@ -98,8 +98,17 @@ class T5Config(PretrainedConfig):
         use_cache=True,
         pad_token_id=0,
         eos_token_id=1,
+        # added from BertConfig
+        classifier_dropout=None,
+        hidden_dropout_prob=0.1,
+        hidden_size=768,
         **kwargs
     ):
+        # added from BertConfig
+        self.classifier_dropout = classifier_dropout
+        self.hidden_dropout_prob = hidden_dropout_prob
+        self.hidden_size = hidden_size
+
         self.vocab_size = vocab_size
         self.d_model = d_model
         self.d_kv = d_kv
